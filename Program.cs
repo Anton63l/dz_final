@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Console;
 
-
+Clear();
 
 string[] GenerateArray(int length){
     var array = new string[length];
@@ -24,10 +24,24 @@ string[] FindLessThan(string[] input, int n) {
 
     return output;
 }
+int CountLessThan(string[] input, int n) {
+    int count = 0;
 
+    for(int i = 0; i < input.Length; i++) {
+        if(input[i].Length <= n) {
+            count++;
+        }
+    }
+
+    return count;
+}
 
 
 
 
 System.Console.Write("Введите количество элементов массива: ");
 int num = Convert.ToInt32(Console.ReadLine());
+
+string[] array = GenerateArray(num);
+string[] result = FindLessThan(array, 3);
+WriteLine($"[{string.Join(", ", array)}] -> [{string.Join(", ", result)}]");
